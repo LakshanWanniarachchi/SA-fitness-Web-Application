@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  fitness: # Django service
+    build: ./Backend/Fitness
+    container_name: fitness_backend
+    volumes:
+      - ./Backend/Fitness:/usr/src/app
+      - ./Backend/Fitness/staticfiles:/usr/src/app/staticfiles # Static files for Django
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
+
+  react: # React service
+    build:
+      context: ./Frontend/Fitness-Frontend
+    container_name: react_frontend
+    stdin_open: true
+    tty: true
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    depends_on:
+      - fitness
+
+  nginx: # Nginx service (serves React frontend and proxies API)
+    build:
+      context: ./nginx
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf # Mount Nginx config
+      - ./Frontend/Fitness-Frontend/build:/usr/share/nginx/html # React build directory (ensure it's built!)
+      - ./Backend/Fitness/staticfiles:/usr/src/app/staticfiles # Serve Django static files
+    depends_on:
+      - fitness
+      - react
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
