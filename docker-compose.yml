@@ -24,7 +24,6 @@ services:
       - app-network
     depends_on:
       - fitness
-      - react
 
   nginx: # Nginx service (serves React frontend and proxies API)
     build:
@@ -38,6 +37,7 @@ services:
       - ./Backend/Fitness/staticfiles:/usr/src/app/staticfiles # Serve Django static files
     depends_on:
       - fitness
+      - react
 
     networks:
       - app-network
