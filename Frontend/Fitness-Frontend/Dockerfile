@@ -18,6 +18,8 @@ RUN npm run build
 # Stage 2: Serve the app with Nginx
 FROM nginx:alpine
 
+COPY default.conf /etc/nginx/conf.d/default.conf
+
 # Copy the build files to the Nginx html folder
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 
