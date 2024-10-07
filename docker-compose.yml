@@ -21,7 +21,6 @@ services:
 
     volumes:
       - ./Frontend/Fitness-Frontend/default.conf:/etc/nginx/conf.d/default.conf # Mount Nginx config
-      - ./Frontend/Fitness-Frontend/build:/usr/share/nginx/html # React build directory (ensure it's built!)
       - ./Backend/Fitness/staticfiles:/usr/src/app/staticfiles # Serve Django static files
     ports:
       - "80:80"
