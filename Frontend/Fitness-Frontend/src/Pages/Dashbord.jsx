@@ -8,12 +8,11 @@ import Speedometer from "../components/Speedometer";
 import BelowButton from "../components/BelowBar";
 import Tips from "../components/Tips";
 
-
 const Dashbord = () => {
   return (
     <Box>
       <Nav />
-      
+
       <Stack direction={"row"} spacing={2} justifyContent={"space-between"}>
         <SideButton />
         <MiddleBar />
@@ -22,7 +21,7 @@ const Dashbord = () => {
       <Stack direction={"row"} spacing={2} justifyContent={"space-between"}>
         <BelowButton />
         <Speedometer />
-        <Tips/>
+        <Tips />
       </Stack>
     </Box>
   );

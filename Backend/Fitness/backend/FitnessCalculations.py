@@ -17,3 +17,10 @@ def cal_Calories_Burned_During_Exercise(activity, weight, duration):
         return calories_burned
     else:
         return "Invalid activity"
+
+
+def cal_BMI(weight, height):
+    weight = decimal.Decimal(weight)
+    height = decimal.Decimal(height)
+    bmi = weight / (height ** 2)
+    return bmi

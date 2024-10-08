@@ -2,11 +2,11 @@
   "name": "react-mui-demo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/assets",
+  "homepage": "/",
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@mui/icons-material": "^6.0.1",
+    "@mui/icons-material": "^6.1.2",
     "@mui/material": "^6.1.0",
     "@mui/styled-engine-sc": "^6.0.1",
     "@mui/x-charts": "^7.15.0",

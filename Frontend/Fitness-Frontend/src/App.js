@@ -9,7 +9,7 @@ import Register from "./Pages/Register";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Box } from "@mui/material";
 import { AuthProvider } from "./context/AuthContext";
-import MealPlan from "./components/TextCoveter";
+import FitnessApp from "./Pages/Ui";
 
 function App() {
   const darkTheme = createTheme({
@@ -44,6 +44,7 @@ function App() {
 
             <Route path="/logout" element={<h1>Not Found</h1>} />
             <Route path="/" element={<Home />} />
+            <Route path="/ui" element={<FitnessApp />} />
           </Routes>
         </AuthProvider>
       </Box>
