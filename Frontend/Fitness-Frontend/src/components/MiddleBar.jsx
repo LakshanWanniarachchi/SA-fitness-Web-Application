@@ -20,7 +20,7 @@ const MiddleBar = () => {
   useEffect(() => {
     const getCaloriesData = async () => {
       try {
-        const response = await fetch("http://159.100.18.155/api/get_calories", {
+        const response = await fetch("http://localhost:8000/api/get_calories", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
