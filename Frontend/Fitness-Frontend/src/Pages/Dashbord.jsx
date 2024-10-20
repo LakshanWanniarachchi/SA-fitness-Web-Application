@@ -7,6 +7,7 @@ import Nav from "../components/Nav";
 import Speedometer from "../components/Speedometer";
 import BelowButton from "../components/BelowBar";
 import Tips from "../components/Tips";
+import WeightLineChart from "../components/WeightLineChart"; // Updated import
 
 const Dashbord = () => {
   return (
@@ -14,13 +15,15 @@ const Dashbord = () => {
       <Nav />
 
       <Stack direction={"row"} spacing={2} justifyContent={"space-between"}>
-        <SideButton />
         <MiddleBar />
-        <RightBar />
+        <WeightLineChart />
       </Stack>
       <Stack direction={"row"} spacing={2} justifyContent={"space-between"}>
-        <BelowButton />
         <Speedometer />
+        <RightBar />
+      </Stack>
+
+      <Stack direction={"row"} spacing={2} justifyContent={"space-between"}>
         <Tips />
       </Stack>
     </Box>

@@ -14,7 +14,7 @@ from .models import Health, Calories_Burned , Profile
 from rest_framework.generics import CreateAPIView
 
 from rest_framework_simplejwt.views import TokenObtainPairView
-from .serializers import CustomTokenObtainPairSerializer, Calories_Burned_data_Serializer, Bmi_data_Serializer ,UserProfileSerializer
+from .serializers import CustomTokenObtainPairSerializer, Calories_Burned_data_Serializer, Bmi_data_Serializer ,UserProfileSerializer ,get_weight_data_Serializer
 from .GeminiAi import GeminiAi  # Add this line
 # Create your views here.
 import json
@@ -197,6 +197,15 @@ class get_calories(APIView):
         serializer = Calories_Burned_data_Serializer(calories, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+
+class  get_weight_data(APIView):
+    permission_classes = [IsAuthenticated]
+    
+    def post(self, request):
+        user = request.user
+        weight = Health.objects.filter(user=user).order_by('-date')[:30]
+        serializer = get_weight_data_Serializer(weight, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class get_BMI(APIView):
     permission_classes = [IsAuthenticated]

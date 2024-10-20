@@ -68,6 +68,13 @@ class Bmi_data_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Health
         fields = ['id', 'date', 'bmi']
+        
+        
+        
+class get_weight_data_Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Health
+        fields = ['id', 'date', 'weight']
 
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -80,3 +87,5 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['username'] = user.username
 
         return token
+
+
